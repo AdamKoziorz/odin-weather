@@ -1,0 +1,24 @@
+span.i_icon {
+    background-image: url('../assets/icons/weather-partly-cloudy.svg');
+    max-width: 100px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+span:not(.i_icon) {
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+}
+
+span.i_description {
+    font-size: 2.5rem;
+}
+
+span.i_temperature {
+    font-size: 5rem;
+    margin-bottom: 20px;
+}
+
+span.i_location, span.i_date, span.i_time {
+    font-size: 1.5rem;
+}
