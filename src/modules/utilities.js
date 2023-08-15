@@ -23,9 +23,9 @@ function formatTime(datetime) {
     const suffix = (parseInt(hour) < 13) ? "AM" : "PM";
 
     hour = (hour === "0") ? "12" : hour;
+    hour = (parseInt(hour) < 13) ? hour : `${parseInt(hour) - 12}`;
     console.log(hour + ":" + minutes + " " + suffix);
     return hour + ":" + minutes + " " + suffix;
 }
-
 
 export { formatDate, formatTime };

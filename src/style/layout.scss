@@ -1,13 +1,13 @@
 .main-info {
-    margin: 2rem;
+    margin: 3rem;
     display: flex;
     flex-direction: column;
     max-width: 300px;
     height: 100%;
     padding: 2rem;
     gap: 8px;
-    background: rgba( 255, 255, 255, 0.02 );
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    background: rgba( 255, 255, 255, 0.03 );
+    box-shadow: 0 16px 32px 0 rgba(0, 0, 0, 0.37);
     backdrop-filter: blur( 10px );
     -webkit-backdrop-filter: blur( 10px );
     border-radius: 10px;

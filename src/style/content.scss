@@ -1,6 +1,12 @@
-span.i_icon {
-    background-image: url('../assets/icons/weather-partly-cloudy.svg');
-    max-width: 100px;
+span {
+  -webkit-user-select: none;  
+  -moz-user-select: none;    
+  -ms-user-select: none;      
+  user-select: none;
+}
+
+.i_icon {
+    max-width: 150px;
     background-position: center;
     background-repeat: no-repeat;
 }
