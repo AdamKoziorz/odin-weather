@@ -2,10 +2,22 @@
     margin: 3rem;
     display: flex;
     flex-direction: column;
-    max-width: 300px;
-    height: 100%;
+    max-width: 250px;
     padding: 2rem;
     gap: 8px;
+    background: rgba( 255, 255, 255, 0.03 );
+    box-shadow: 0 16px 32px 0 rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur( 10px );
+    -webkit-backdrop-filter: blur( 10px );
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.18);
+}
+
+.attribution {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    padding: 1rem;
     background: rgba( 255, 255, 255, 0.03 );
     box-shadow: 0 16px 32px 0 rgba(0, 0, 0, 0.37);
     backdrop-filter: blur( 10px );

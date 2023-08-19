@@ -1,19 +1,46 @@
-import { formatDate, formatTime } from './utilities'
+import { formatDate, formatTime12, createLocation, isNight, padZeroToTime } from './utilities'
 
-function extractForecastData(raw_data) {
+function transformForecastData(raw_data) {
     return {
         "description": raw_data.current.condition.text,
-        "location": raw_data.location.name,
+        "location": createLocation(raw_data.location.name, raw_data.location.region, raw_data.location.country),
         "date": formatDate(raw_data.location.localtime),
-        "time": formatTime(raw_data.location.localtime),
+        "time": formatTime12(raw_data.location.localtime),
         "temperature": raw_data.current.temp_c + "°C",
     }
+}
+
+function transformAstronomyData(raw_data) {
+    console.log("hi");
+    console.log(padZeroToTime(formatTime12(raw_data.location.localtime)));
+    console.log(raw_data.astronomy.astro.sunrise);
+    console.log(raw_data.astronomy.astro.sunset);
+
+    return isNight(padZeroToTime(formatTime12(raw_data.location.localtime)),
+                           raw_data.astronomy.astro.sunrise,
+                           raw_data.astronomy.astro.sunset);
 }
 
 async function getForecastData(region) {
     try {
         const response = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=567d5d6aedf54166a62222242231408&q=${region}&days=3`, {mode: 'cors'});
         const data = await response.json();
+        if (!response.ok) {
+            throw new Error('Place does not exist');
+        }
+        return data;
+    } catch(err) {
+        console.log(`fail: ${err}`);
+    }
+}
+
+async function getAstronomyData(region) {
+    try {
+        const response = await fetch(`https://api.weatherapi.com/v1/astronomy.json?key=567d5d6aedf54166a62222242231408&q=${region}&dt=`, {mode:'cors'});
+        const data = await response.json();
+        if (!response.ok) {
+            throw new Error('Place does not exist');
+        }
         return data;
     } catch(err) {
         console.log(`fail: ${err}`);
@@ -21,11 +48,26 @@ async function getForecastData(region) {
 }
 
 async function getForecast(region) {
-    const rawData = await getForecastData(region);
-    const cleanData = extractForecastData(rawData);
+    try {
+        const rawData = await getForecastData(region);
+        const cleanData = transformForecastData(rawData);
+        return cleanData;
+    } catch(err) {
+        console.log("FAIL");
+    }
 
-    console.log(cleanData);
-    return cleanData;
 }
 
-export { getForecast };
+async function getAstronomy(region) {
+    try {
+        const rawData = await getAstronomyData(region);
+        console.log(rawData);
+        const cleanData = transformAstronomyData(rawData);
+        return cleanData;
+    } catch(err) {
+        console.log("FAIL");
+    }
+}
+
+
+export { getForecast, getAstronomy };

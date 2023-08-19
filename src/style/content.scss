@@ -6,9 +6,14 @@ span {
 }
 
 .i_icon {
-    max-width: 150px;
+    max-width: 120px;
     background-position: center;
     background-repeat: no-repeat;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
 }
 
 span:not(.i_icon) {
@@ -17,14 +22,18 @@ span:not(.i_icon) {
 }
 
 span.i_description {
-    font-size: 2.5rem;
+    font-size: 2rem;
 }
 
 span.i_temperature {
-    font-size: 5rem;
+    font-size: 4rem;
     margin-bottom: 20px;
 }
 
 span.i_location, span.i_date, span.i_time {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
+}
+
+span.i_time {
+    margin-bottom: 30px;
 }

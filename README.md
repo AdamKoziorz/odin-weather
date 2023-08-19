@@ -7,5 +7,20 @@ I am completing various small projects as part of the Odin Project. "Weather App
 Rain Background:
 https://www.newgrounds.com/art/view/daydreamer94/a-break-in-the-rain
 
-Cloudy Background:
+Sunny Cloudy Background:
 https://www.reddit.com/r/Art/comments/vfv288/sunny_afternoon_me_pixel_art_2022/
+
+Snowy Background:
+https://www.reddit.com/r/snowing/comments/w30ej4/snow_day_by_ryan_haight_pixel_art_gif/
+
+Cloudy Background:
+https://gfycat.com/agilefoolhardyjoey
+
+Default Background:
+https://rare-gallery.com/uploads/posts/547224-landscape-wallpaper.gif
+
+Clear Background:
+https://1041uuu.tumblr.com/page/4
+
+Sunny Background:
+https://www.patreon.com/posts/22364716
