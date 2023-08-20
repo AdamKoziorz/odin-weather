@@ -25,3 +25,16 @@
     border-radius: 10px;
     border: 1px solid rgba(0, 0, 0, 0.18);
 }
+
+@media (max-width: 500px) {
+    .main-info {
+        margin: 1rem;
+        max-width: 500px;
+        justify-content: center;
+    }
+
+    .attribution {
+        bottom: 1rem;
+        right: 1rem;
+    }
+ }

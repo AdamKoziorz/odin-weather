@@ -1,4 +1,4 @@
 import '../style/main.scss';
-import { update }  from './controller';
+import update from './controller';
 
 update('Toronto');
