@@ -6,12 +6,11 @@ function transformForecastData(raw_data) {
         "location": createLocation(raw_data.location.name, raw_data.location.region, raw_data.location.country),
         "date": formatDate(raw_data.location.localtime),
         "time": formatTime12(raw_data.location.localtime),
-        "temperature": raw_data.current.temp_c + "°C",
+        "temperature": Math.round(raw_data.current.temp_c) + "°C",
     }
 }
 
 function transformAstronomyData(raw_data) {
-    console.log("hi");
     console.log(padZeroToTime(formatTime12(raw_data.location.localtime)));
     console.log(raw_data.astronomy.astro.sunrise);
     console.log(raw_data.astronomy.astro.sunset);
@@ -22,29 +21,21 @@ function transformAstronomyData(raw_data) {
 }
 
 async function getForecastData(region) {
-    try {
-        const response = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=567d5d6aedf54166a62222242231408&q=${region}&days=3`, {mode: 'cors'});
-        const data = await response.json();
-        if (!response.ok) {
-            throw new Error('Place does not exist');
-        }
-        return data;
-    } catch(err) {
-        console.log(`fail: ${err}`);
+    const response = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=567d5d6aedf54166a62222242231408&q=${region}&days=3`, {mode: 'cors'});
+    const data = await response.json();
+    if (!response.ok) {
+        throw new Error('Place does not exist');
     }
+    return data;
 }
 
 async function getAstronomyData(region) {
-    try {
-        const response = await fetch(`https://api.weatherapi.com/v1/astronomy.json?key=567d5d6aedf54166a62222242231408&q=${region}&dt=`, {mode:'cors'});
-        const data = await response.json();
-        if (!response.ok) {
-            throw new Error('Place does not exist');
-        }
-        return data;
-    } catch(err) {
-        console.log(`fail: ${err}`);
+    const response = await fetch(`https://api.weatherapi.com/v1/astronomy.json?key=567d5d6aedf54166a62222242231408&q=${region}&dt=`, {mode:'cors'});
+    const data = await response.json();
+    if (!response.ok) {
+        throw new Error('Place does not exist');
     }
+    return data;
 }
 
 async function getForecast(region) {

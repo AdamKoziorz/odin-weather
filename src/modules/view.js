@@ -28,6 +28,7 @@ const locationSpan = document.querySelector('.i_location');
 const dateSpan = document.querySelector('.i_date');
 const timeSpan = document.querySelector('.i_time');
 const temperatureSpan = document.querySelector('.i_temperature');
+const errorSpan = document.querySelector('.error');
 const attributionText = document.querySelector('.attribution-text');
 
 function setAesthetic(description, isNight) {
@@ -146,6 +147,11 @@ function updateView(data, isNight) {
     dateSpan.innerText = data.date;
     timeSpan.innerText = data.time;
     temperatureSpan.innerText = data.temperature;
+    errorSpan.style.display = 'none';
 }
 
-export { updateView };
+function showError() {
+    errorSpan.style.display = 'inline';
+}
+
+export { updateView, showError };

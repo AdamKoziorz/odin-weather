@@ -1,5 +1,5 @@
 import { getForecast, getAstronomy } from './weatherapi'
-import { updateView } from './view'
+import { updateView, showError } from './view'
 
 const search = document.getElementById('searchLocation');
 
@@ -16,7 +16,7 @@ async function update(location) {
         const isNight = await getAstronomy(location);
         updateView(data, isNight);
     } catch(err) {
-        console.log("FAIL");
+        showError();
     }
 }
 
