@@ -29,7 +29,7 @@ function formatTime12(datetime) {
   const timeParts = datetime.split(" ")[1].split(":");
   let hour = timeParts[0];
   const minutes = timeParts[1];
-  const suffix = parseInt(hour, 10) < 13 ? "AM" : "PM";
+  const suffix = parseInt(hour, 10) < 12 ? "AM" : "PM";
   
   hour = hour === "0" ? "12" : hour;
   hour = parseInt(hour, 10) < 13 ? hour : `${parseInt(hour, 10) - 12}`;

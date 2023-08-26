@@ -37,7 +37,7 @@ function setAesthetic(description, isNight) {
     case "Cloudy":
     case "Overcast":
       currentIcon.src = OvercastIcon;
-      body.style.abckgroundImage = `url(${OvercastBackground})`;
+      body.style.backgroundImage = `url(${OvercastBackground})`;
       attributionText.innerText = "Background: agilefoolhardyjoey";
       break;
     case "Partly cloudy":
